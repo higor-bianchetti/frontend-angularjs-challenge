@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 		uglify: {
 			my_target: {
 			 files: {
-				 'build/js/script.min.js': ['app/js/app.js', 'app/js/services/**/*.js', 'app/js/controllers/**/*.js', 'app/js/*.js', 'app/directives/*.js']
+				 'build/js/script.min.js': ['app/modules/*.js', 'app/services/*.js', 'app/controllers/*.js', 'app/filters/*.js', 'app/libs/*.js', 'app/directives/*.js']
 			 }
 		 }
 		},
@@ -100,6 +100,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-open');
 
-	grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'processhtml']);
+	grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'copy', 'processhtml']);
 	grunt.registerTask('dev', ['connect:dev', 'open:dev', 'watch:client']);
 };
