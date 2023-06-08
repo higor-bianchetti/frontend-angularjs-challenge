@@ -237,7 +237,7 @@ describe('MinIONApp controllers', function() {
 			$interval = _$interval_
 			$httpBackend = _$httpBackend_
 			scope = $rootScope.$new()
-			controller = $controller('SequenceListCtrl', { $scope: scope })  
+			controller = $controller('SequenceListController', { $scope: scope })  
 			element = $compile('<minion-rectangle />')($rootScope);
 			svg = $compile('<div class="paddingHack"><svg class="rect" viewBox="0 0 100 100" style="fill:{{sequence.color}}"><rect x="0" y="0" width="200" height="200" /></svg></div>')($rootScope)
 

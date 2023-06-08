@@ -1,6 +1,6 @@
 "use strict";
 
-MinIONApp.controller("SequenceListCtrl", [
+MinIONApp.controller("SequenceListController", [
   "$scope",
   "Dialog",
   "$http",

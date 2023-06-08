@@ -24,7 +24,7 @@
   </head>
 
   <body
-    ng-controller="SequenceListCtrl"
+    ng-controller="SequenceListController"
     ng-keypress="global.dialogOpen && enterKey($event,id) && dialogClose()"
   >
     <main>
@@ -62,6 +62,8 @@
     <script src="services/dialogService.js"></script>
     <script src="services/sequenceDialogService.js"></script>
     <script src="services/sequenceMatcherService.js"></script>
+
+    <script src="controllers/SequenceListController.js"></script>
 
     <script src="directives/barsChart.js"></script>
     <script src="directives/chart.js"></script>
