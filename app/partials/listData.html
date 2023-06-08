@@ -1,0 +1,18 @@
+<div class="tableContainer">
+  <div class="table">
+    <div
+      class="tbody"
+      ng-repeat="sequence in sequences"
+      id="seq{{$index}}"
+      ng-click="dialog($index)"
+    >
+      <div class="colorRect"><minion-rectangle /></div>
+      <div class="data">
+        {{sequence.name}}<br />
+        {{ sequence.prob | number: 5}} %
+      </div>
+    </div>
+  </div>
+
+  <div class="plus" ng-click="dialog()">+</div>
+</div>

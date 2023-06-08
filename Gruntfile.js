@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'build/strands/strands.json': ['app/strands/strands.json'],
+					'build/partials.html': ['app/partials/*.html'],
 					'build/popup.html': ['app/popup.html'],
 				}
 			}
@@ -17,7 +18,7 @@ module.exports = function(grunt) {
 		uglify: {
 			my_target: {
 			 files: {
-				 'build/js/script.min.js': ['app/js/app.js', 'app/js/services/**/*.js', 'app/js/controllers/**/*.js', 'app/js/*.js']
+				 'build/js/script.min.js': ['app/js/app.js', 'app/js/services/**/*.js', 'app/js/controllers/**/*.js', 'app/js/*.js', 'app/directives/*.js']
 			 }
 		 }
 		},
