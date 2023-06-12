@@ -92,7 +92,17 @@ MinIONApp.controller("SequenceListController", [
     };
 
     $scope.editSequence = function () {
-      alert("Implementar edição");
+      var success = SequenceEditor.editSequence($scope.global.id, $scope.global.editSeq, $scope.sequences)
+
+      if(success) {
+        if($scope.global.id === -1) {
+          $scope.sequences.push($scope.global.editSeq);
+          $scope.dialogClose();
+        } else {
+          $scope.sequences[$scope.global.editId] = $scope.global.editSeq;
+          $scope.dialogClose();
+        }
+      }
     };
 
     $scope.remove = function (removeId) {
@@ -101,7 +111,9 @@ MinIONApp.controller("SequenceListController", [
     };
 
     $scope.enterKey = function (keyEvent, editId) {
-      if (keyEvent.which === 13) return $scope.editSequence(editId);
+      if (keyEvent.which === 13) {
+        return $scope.editSequence(editId);
+      }
 
       return false;
     };

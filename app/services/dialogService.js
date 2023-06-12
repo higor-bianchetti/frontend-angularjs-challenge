@@ -1,4 +1,6 @@
-var dialogService = angular.module("dialogService", ["ngDialog"]);
+var dialogService = angular.module("dialogService", [
+  "ngDialog",
+]);
 
 dialogService.factory("Dialog", [
   "ngDialog",
@@ -9,12 +11,14 @@ dialogService.factory("Dialog", [
         global.seqError = false;
         global.dialogOpen = true;
 
-        if (seqId) {
+        if (seqId || seqId === 0) {
           global.id = seqId;
           global.editSeq = angular.copy(sequences[seqId]);
           global.deleteDisable = false;
         } else {
-          return alert("Implementar Adição");
+          global.id = -1;
+          global.editSeq = { name: '', structure: '', prob: 0, rate: 0 }
+          global.deleteDisable = true;
         }
 
         this.openedDialog = ngDialog.open({
