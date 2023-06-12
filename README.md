@@ -6,9 +6,9 @@ O objetivo do teste é verificar a capacidade do candidato de resolver problemas
 
 ### Bugs a serem resolvidos
 
-- O botão de adicionar não está funcionando;
-- A edição dos elementos não está funcionando;
-- Ao clicar em 'SAVE REPORT' a aplicação está sendo encerrada, porém o report é salvo.
+[x] O botão de adicionar não está funcionando;
+[x] A edição dos elementos não está funcionando;
+[x] Ao clicar em 'SAVE REPORT' a aplicação está sendo encerrada, porém o report é salvo.
 
 ### Melhorias
 
@@ -33,6 +33,20 @@ npm run start
 ```
 
 Após realizar as edições execute novamente o `grunt build` e o `npm start`
+
+## Atualização
+
+Configurei o Gruntfile para que as alterações sejam aplicadas no momento do carregamento da página, a fim de faciltar o processo de desenvolvimento:
+
+Executar o server primeiro
+```
+npm run server
+```
+
+Executar o grunt em outra instância do terminal:
+```
+npm run dev
+```
 
 **FEATURES**
 
