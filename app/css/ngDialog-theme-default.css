@@ -194,3 +194,10 @@
   background: #e0e0e0;
   color: #777;
 }
+
+@media (max-width: 1080px) {
+  .ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 80%;
+    padding: 3rem;
+  }
+}

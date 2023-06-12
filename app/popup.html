@@ -1,46 +1,71 @@
 <div class="dialog">
-  <form name="seqDialog" ng>
+  <form name="seqDialog" novalidate>
     <input
       type="text"
+      name="seqName"
       ng-model="global.editSeq.name"
       placeholder="Sequence name"
+      ng-required="true"
       autofocus
     />
 
-    <br />
+    <div class="error" id="nameError" ng-show="seqDialog.seqName.$touched && seqDialog.seqName.$invalid">
+      The name is required
+    </div>
 
     <input
       type="text"
+      name="seqStructure"
       ng-model="global.editSeq.structure"
       placeholder="Structure"
+      ng-required="true"
     />
 
     <br />
 
-    <span class="error" id="notice" ng-show="global.seqError">
+    <div class="error" id="structureError" ng-show="seqDialog.seqStructure.$touched && seqDialog.seqStructure.$invalid">
+      The structure is required
+    </div>
+
+    <div class="error" id="notice" ng-show="seqDialog.seqStructure.$touched && !regexTest(global.editSeq.structure)">
       Please use only three letter sequences using capital letters A,G,C or T.
-    </span>
+    </div>
 
     <br />
 
     <input type="hidden" ng-model="global.editSeq.rate" value="0" />
-    <input
-      class="b"
-      type="button"
-      name="ok"
-      id="ok"
-      value="OK"
-      ng-click="editSequence(global.id) && dialogClose()"
-    />
-    <input
-      class="b"
-      type="button"
-      name="delete"
-      id="delete"
-      value="DELETE"
-      ng-click="remove(global.id);dialogClose()"
-      ng-disabled="global.deleteDisable"
-    />
+
+    <div class="buttons">
+      <input
+        class="btn"
+        type="button"
+        name="ok"
+        id="ok"
+        value="OK"
+        ng-click="editSequence(global.id) && dialogClose()"
+      />
+  
+      <input
+        class="btn"
+        type="button"
+        name="delete"
+        id="delete"
+        value="DELETE"
+        ng-hide="global.deleteDisable"
+        ng-click="remove(global.id);dialogClose()"
+        ng-disabled="global.deleteDisable"
+      />
+  
+      <input
+        class="btn"
+        type="button"
+        name="delete"
+        id="delete"
+        value="CANCEL"
+        ng-show="global.deleteDisable"
+        ng-click="dialogClose()"
+      />
+    </div>
 
     <br />
 
